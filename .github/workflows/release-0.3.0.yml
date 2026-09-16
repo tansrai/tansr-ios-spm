@@ -1,0 +1,32 @@
+name: Publish iOS SDK 0.3.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.release/0.3.0/**'
+      - '.github/workflows/release-0.3.0.yml'
+      - '.github/scripts/publish-release-0.3.0.mjs'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ios-binary-release-0.3.0
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'tansrai/tansr-ios-spm' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify immutable binaries and publish prepared release
+        run: node .github/scripts/publish-release-0.3.0.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+          RELEASE_COMMIT: ${{ github.sha }}
