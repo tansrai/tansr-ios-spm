@@ -1,6 +1,6 @@
 # Tansr iOS SDK
 
-Public binary Swift package, version **0.2.1**. Three XCFrameworks are downloaded over HTTPS and verified by SwiftPM checksums. This repository contains distribution metadata; the SDK implementation is not included.
+Public binary Swift package, version **0.3.0**. Three XCFrameworks are downloaded over HTTPS and verified by SwiftPM checksums. This repository contains distribution metadata; the SDK implementation is not included.
 
 ## Requirements
 
@@ -8,10 +8,10 @@ iOS 16+ (arm64), iOS Simulator (arm64 / x86_64), macOS 13+ (arm64 / x86_64). Use
 
 ## Integrate
 
-Add this package in Xcode: https://github.com/tansrai/tansr-ios-spm.git, exact version 0.2.1.
+Add this package in Xcode: https://github.com/tansrai/tansr-ios-spm.git, exact version 0.3.0.
 
 ```swift
-.package(url: "https://github.com/tansrai/tansr-ios-spm.git", exact: "0.2.1")
+.package(url: "https://github.com/tansrai/tansr-ios-spm.git", exact: "0.3.0")
 // In your target dependencies:
 .product(name: "TansrClient", package: "tansr-ios-spm")
 .product(name: "TansrUI", package: "tansr-ios-spm") // Optional SwiftUI components
